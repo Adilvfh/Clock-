@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock & Stopwatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #clock {
+            font-size: 48px;
+            color: #333;
+            margin: 20px;
+        }
+
+        .stopwatch {
+            font-size: 36px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3d8b40;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <button class="tab-button" onclick="showTab('clock')">Clock</button>
+        <button class="tab-button" onclick="showTab('stopwatch')">Stopwatch</button>
+    </div>
+
+    <div id="clockTab" class="container">
+        <div id="clock"></div>
+    </div>
+
+    <div id="stopwatchTab" class="container" style="display: none;">
+        <div class="stopwatch">
+            <span id="swHours">00</span>:<span id="swMinutes">00</span>:<span id="swSeconds">00</span>.<span id="swMilliseconds">00</span>
+        </div>
+        <button id="startStop">Start</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        // Clock functionality
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Stopwatch functionality
+        let stopwatchRunning = false;
+        let startTime;
+        let elapsedTime = 0;
+        let interval;
+
+        function updateStopwatch() {
+            const currentTime = Date.now();
+            const diff = currentTime - startTime + elapsedTime;
+            
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            const milliseconds = Math.floor((diff % 1000) / 10);
+
+            document.getElementById('swHours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('swMinutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('swSeconds').textContent = seconds.toString().padStart(2, '0');
+            document.getElementById('swMilliseconds').textContent = milliseconds.toString().padStart(2, '0');
+        }
+
+        document.getElementById('startStop').addEventListener('click', function() {
+            if (!stopwatchRunning) {
+                startTime = Date.now();
+                interval = setInterval(updateStopwatch, 10);
+                this.textContent = 'Stop';
+                stopwatchRunning = true;
+            } else {
+                clearInterval(interval);
+                elapsedTime += Date.now() - startTime;
+                this.textContent = 'Start';
+                stopwatchRunning = false;
+            }
+        });
+
+        document.getElementById('reset').addEventListener('click', function() {
+            clearInterval(interval);
+            stopwatchRunning = false;
+            elapsedTime = 0;
+            document.getElementById('startStop').textContent = 'Start';
+            document.getElementById('swHours').textContent = '00';
+            document.getElementById('swMinutes').textContent = '00';
+            document.getElementById('swSeconds').textContent = '00';
+            document.getElementById('swMilliseconds').textContent = '00';
+        });
+
+        // Tab functionality
+        function showTab(tabName) {
+            document.getElementById('clockTab').style.display = 'none';
+            document.getElementById('stopwatchTab').style.display = 'none';
+            
+            document.getElementById(tabName + 'Tab').style.display = 'block';
+        }
+
+        // Initialize clock
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
