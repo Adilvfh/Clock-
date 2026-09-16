@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 680" width="1640" height="1360">
+<defs><style>.l{fill:none;stroke:#111;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}.t{font-family:Arial,sans-serif;fill:#111}.n{font-size:18px}.part{font-size:20px}</style></defs>
+<rect width="100%" height="100%" fill="white"/>
+<!-- exploded hardware callouts -->
+<g class="l">
+ <circle cx="186" cy="88" r="75"/><circle cx="159" cy="91" r="24"/><circle cx="204" cy="111" r="30"/>
+ <ellipse cx="201" cy="112" rx="18" ry="25"/><path d="M146 77c18-18 36-12 47 0M184 90l33 20M197 93l11 26"/>
+ <circle cx="345" cy="119" r="75"/><circle cx="319" cy="116" r="22"/><path d="M303 110l14-11 13 9-8 17-18-2M348 95c18 5 32 17 40 34M344 139c19 0 32-9 43-22"/>
+ <path d="M322 120l43 35M358 151l25-20M302 141l18 12"/>
+ <circle cx="522" cy="88" r="73"/><ellipse cx="494" cy="87" rx="17" ry="25"/><path d="M486 82l12-10 12 7-5 18-17 4M510 96l51 42"/>
+ <ellipse cx="566" cy="139" rx="27" ry="45" transform="rotate(-35 566 139)"/>
+</g>
+<g class="t part"><text x="140" y="215">B × 12</text><text x="626" y="88">I × 12</text></g>
+<!-- main assembly: long rails and base -->
+<g class="l">
+ <path d="M23 491L324 318 754 516 451 655z"/>
+ <path d="M23 491v20l303 167 302-138v-20"/>
+ <!-- left rail --> <path d="M29 476L317 309l18 10L47 492z"/><path d="M29 476v40l18 10v-34M317 309v39l18 10v-39"/>
+ <!-- right rail --> <path d="M143 554l474-275 128 74-476 276z"/><path d="M143 554v39l126 73v-38M617 279v39l128 74v-39"/>
+ <!-- inner/upper rail --> <path d="M319 337l289-169 27 16-290 169z"/><path d="M319 337v39l26 15v-38M608 168v38l27 16v-38"/>
+ <!-- cross brace --> <path d="M321 337l113 66-25 15-113-66z"/>
+ <!-- holes/fasteners -->
+ <g fill="#111" stroke="none"><circle cx="42" cy="480" r="4"/><circle cx="78" cy="472" r="4"/><circle cx="103" cy="452" r="4"/><circle cx="238" cy="390" r="4"/><circle cx="303" cy="351" r="4"/><circle cx="421" cy="273" r="4"/><circle cx="492" cy="234" r="4"/><circle cx="571" cy="199" r="4"/><circle cx="645" cy="256" r="4"/><circle cx="715" cy="297" r="4"/><circle cx="682" cy="485" r="4"/><circle cx="535" cy="557" r="4"/><circle cx="375" cy="628" r="4"/><circle cx="197" cy="554" r="4"/></g>
+ <g stroke-width="4"><path d="M75 485v20M97 470v20M238 393v19M421 277v20M492 237v20M572 202v20M682 488v20M535 560v20M375 631v20"/></g>
+</g>
+<!-- labels -->
+<g class="t n"><circle cx="93" cy="406" r="15" fill="white" stroke="#111"/><text x="87" y="412">11</text><path class="l" d="M108 410l55 31"/>
+<circle cx="302" cy="431" r="15" fill="white" stroke="#111"/><text x="296" y="437">4</text>
+<circle cx="441" cy="374" r="15" fill="white" stroke="#111"/><text x="435" y="380">12</text><path class="l" d="M426 374l-37 20"/>
+<circle cx="300" cy="588" r="15" fill="white" stroke="#111"/><text x="294" y="594">11</text><path class="l" d="M288 577l-55-45"/>
+</g>
+<!-- downward arrow --> <path class="l" d="M181 246v53m-10-12l10 18 10-18"/>
+</svg>
